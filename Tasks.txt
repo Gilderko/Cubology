@@ -1,0 +1,6 @@
+- pridat zmenu tvaru ako obtiaznost HARD - kocka, EASY - gulicka - done
+- pridat akoby mapu lvlov
+- pridat currency kde za prejdenie lvlu ziskas peniaze ktoré uplatnis na skiny, nové mapy ale dostanes viac ako replay starsich ale nie o vela
+- pridat nový druh máp (mame desert, frost, turret, basic) a pridat mnozstvo lvlov cca na 50 (mame 19)
+- pridat pickupy do hry, ak trafis srdiecko tak budes nezranitelny na atd
+- modifikovat score system aby zapisal najlepsi run po najdalsi lvl s najmensim poctom umrti (nazveme to ako nejaký "Great challenge") pre easy aj hard obtiaznost - done

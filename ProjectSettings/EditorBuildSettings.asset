@@ -1,0 +1,80 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: Assets/MainMenu.unity
+    guid: 0a0468c8007ec6441b2af1fdf6c20cfd
+  - enabled: 1
+    path: Assets/Lvl1.unity
+    guid: 1d7fc8014f35b404cbfada6d230057df
+  - enabled: 1
+    path: Assets/Lvl2.unity
+    guid: 76e04bbd8a481de40b078a43c5391076
+  - enabled: 1
+    path: Assets/Lvl3.unity
+    guid: 972cf09bb1a3d674b8f33ea7d9fde1e4
+  - enabled: 1
+    path: Assets/Lvl4.unity
+    guid: 4a04eb79cf529ed4fa75bd5c5396cf78
+  - enabled: 1
+    path: Assets/Lvl5.unity
+    guid: f476d7a47801d1343accf6900c881564
+  - enabled: 1
+    path: Assets/Lvl6.unity
+    guid: 26fa60da9be7dd94f91da857d2113dba
+  - enabled: 1
+    path: Assets/Lvl7.unity
+    guid: 1cdc5386899ff564ba484d8497ecc4ed
+  - enabled: 1
+    path: Assets/Lvl8.unity
+    guid: db586d54f60976948813fc84e0e3892b
+  - enabled: 1
+    path: Assets/Lvl9.unity
+    guid: 1bf2a376149bf234aa39385f3dc35f46
+  - enabled: 1
+    path: Assets/Lvl10.unity
+    guid: c66353f890c347f4583b850458614d35
+  - enabled: 1
+    path: Assets/Lvl11.unity
+    guid: 2912d54c510b88d40a69fbb935af248c
+  - enabled: 1
+    path: Assets/DesertLvl1.unity
+    guid: 3c804711a0c596d43b2f53c4cc2412f9
+  - enabled: 1
+    path: Assets/DesertLvl2.unity
+    guid: 66192b5d6bc50e247b2c08de4e074d0c
+  - enabled: 1
+    path: Assets/DesertLvl3.unity
+    guid: 043b2bd5113ef1041a2693e4192c734d
+  - enabled: 1
+    path: Assets/FrostLvl1.unity
+    guid: 5a319193bac3d0c4f9868de188f88f17
+  - enabled: 1
+    path: Assets/FrostLvl2.unity
+    guid: da930152cf634284bbd479850ce4139f
+  - enabled: 1
+    path: Assets/FrostLvl3.unity
+    guid: d4201a90c1b29784da35d86712e635eb
+  - enabled: 1
+    path: Assets/TurretLvl1.unity
+    guid: 747a384b0530bb945979b862f0258115
+  - enabled: 1
+    path: Assets/TurretLvl2.unity
+    guid: 56b59f0aaca0bac4990855d0df8f1467
+  - enabled: 1
+    path: Assets/TurretLvl3.unity
+    guid: d6629c3600293b142a78b53c8f408779
+  - enabled: 1
+    path: Assets/SpaceLvl1.unity
+    guid: 63d693ee01f988642aa433c1be38cf13
+  - enabled: 1
+    path: Assets/SpaceLvl2.unity
+    guid: 45c66384281f1d3458c0e3f77de34806
+  - enabled: 1
+    path: Assets/SpaceLvl3.unity
+    guid: 55ab87d91e3a59044b1d093b06ff3637
+  m_configObjects: {}

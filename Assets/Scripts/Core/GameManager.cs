@@ -22,8 +22,10 @@ public class GameManager : MonoBehaviour {
         screenFader.FadeInImmediate();
         if (SceneManager.GetActiveScene().buildIndex == 0)
         {
+            FindObjectOfType<MoveCameraTouch>().blockingRaycast = true;
             yield return screenFader.FadeOut(1f);
-            deathCount = 0;            
+            deathCount = 0;
+            FindObjectOfType<MoveCameraTouch>().blockingRaycast = false;
         }
         else
         {            

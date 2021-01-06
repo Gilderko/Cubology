@@ -13,8 +13,7 @@ public class MoveCameraTouch : MonoBehaviour
     public bool blockingRaycast = false;
 
     void Update()
-    {
-        if (blockingRaycast) { return; }
+    {        
         if (Input.GetMouseButtonDown(0))
         {
             touchStart = Camera.main.ScreenToViewportPoint(Input.mousePosition);
@@ -22,14 +21,15 @@ public class MoveCameraTouch : MonoBehaviour
             RaycastHit hit;
             bool hasHit = Physics.Raycast(mouseRay, out hit);
             LevelPedestal hitPedestal = hit.transform.GetComponent<LevelPedestal>();
-            if (hitPedestal != null)
+            if (hitPedestal != null && !blockingRaycast)
             {
+                blockingRaycast = true;
                 hitPedestal.LoadSelectedLevel();
             }
-            if (hit.transform.tag == "MenuStarter")
+            if (hit.transform.tag == "MenuStarter" && !blockingRaycast)
             {
-                mainMenu.SetActive(true);
                 blockingRaycast = true;
+                mainMenu.SetActive(true);                
             }
         }
         if (Input.GetMouseButton(0))

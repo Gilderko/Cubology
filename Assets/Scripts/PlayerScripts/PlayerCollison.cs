@@ -17,7 +17,7 @@ public class PlayerCollison : MonoBehaviour {
     {
         float positionY = gameObject.GetComponent<Transform>().position.y;
         float positionX = gameObject.GetComponent<Transform>().position.x;
-        if (positionY < (-3) || positionX < -15 || positionX > 15)
+        if (positionY < (-3) || positionX < -25 || positionX > 25)
         {
             StartCoroutine(FindObjectOfType<GameManager>().RestartLevel());
         }

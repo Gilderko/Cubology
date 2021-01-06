@@ -300,6 +300,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6505903692364150233}
     m_Modifications:
+    - target: {fileID: 177112090477255886, guid: d929e25403c0c774db6ee7b782d2eeb9,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 177112090477255886, guid: d929e25403c0c774db6ee7b782d2eeb9,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 177112090477255886, guid: d929e25403c0c774db6ee7b782d2eeb9,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 177112090707228040, guid: d929e25403c0c774db6ee7b782d2eeb9,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -409,6 +424,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: InGameCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 177112092285362095, guid: d929e25403c0c774db6ee7b782d2eeb9,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 177112092285362095, guid: d929e25403c0c774db6ee7b782d2eeb9,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 177112092285362095, guid: d929e25403c0c774db6ee7b782d2eeb9,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6692599751296961269, guid: d929e25403c0c774db6ee7b782d2eeb9,
         type: 3}

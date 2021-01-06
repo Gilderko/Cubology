@@ -30,6 +30,7 @@ public class Moving : MonoBehaviour {
             }
             i++;
         }
+        
         /*
         if (Input.GetKey(KeyCode.D))
         {
@@ -38,7 +39,8 @@ public class Moving : MonoBehaviour {
         if (Input.GetKey(KeyCode.A))
         {
             RunCharacter(-sidewaysSpeed);
-        } */
+        }
+        */
     }
 
     private void RunCharacter(float horizontalInput)

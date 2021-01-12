@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
@@ -25,10 +23,10 @@ public class MainMenu : MonoBehaviour
         Application.Quit();
     }
 
-
     public void BacktoLevelSelection()
     {        
         menu.GetComponent<Animation>().Play("ToggleOffMenu");
+        menu.GetComponent<CanvasGroup>().interactable = false;
         StartCoroutine(ToggleOfMenu());
     }
 

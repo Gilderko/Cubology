@@ -10,12 +10,7 @@ using UnityEngine.SceneManagement;
 namespace Saving
 {
     public class SavingSystem : MonoBehaviour
-    {
-        private void Awake()
-        {
-            Load("levelInfoData");
-
-        }
+    { 
 
         public void Save(string saveFile)
         {

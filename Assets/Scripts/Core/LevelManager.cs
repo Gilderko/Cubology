@@ -25,7 +25,7 @@ public class LevelManager : MonoBehaviour, ISaveable
         levelStatuses = new LazyValue<LevelData[]>(InitializeLevelStatuses);        
     }    
 
-    private static LevelData[] InitializeLevelStatuses()
+    private LevelData[] InitializeLevelStatuses()
     {
         LevelData[] statuses = new LevelData[SceneManager.sceneCountInBuildSettings];
         for (int i = 0; i < SceneManager.sceneCountInBuildSettings; i++)
@@ -38,7 +38,7 @@ public class LevelManager : MonoBehaviour, ISaveable
         return statuses;
     }
 
-    public void LoadLevel(int levelIndex)
+    public static void LoadLevel(int levelIndex)
     {
         if (levelIndex > levelStatuses.value.Length) { return; }
         print(levelIndex);
@@ -51,17 +51,17 @@ public class LevelManager : MonoBehaviour, ISaveable
         }
     }
 
-    public void SetLevelUnlock(int levelIndex)
+    public static void SetLevelUnlock(int levelIndex)
     {
         levelStatuses.value[levelIndex].LevelStatus = LevelStatus.Unlocked;
     }
 
-    public void SetLevelCompleted(int levelIndex)
+    public static void SetLevelCompleted(int levelIndex)
     {
         levelStatuses.value[levelIndex].LevelStatus = LevelStatus.Completed;
     }
 
-    public void SetLevelDeaths(int levelIndex,bool isHard,int levelDeaths)
+    public static void SetLevelDeaths(int levelIndex,bool isHard,int levelDeaths)
     {
         LevelData levelData = levelStatuses.value[levelIndex];
         if (isHard && levelDeaths < levelData.deathsHard)
@@ -74,13 +74,13 @@ public class LevelManager : MonoBehaviour, ISaveable
         }
     }
     
-    public bool IsLevelLocked(int levelIndex)
+    public static bool IsLevelLocked(int levelIndex)
     {        
         if (levelIndex >= levelStatuses.value.Length) { return true; }        
         return levelStatuses.value[levelIndex].LevelStatus == LevelStatus.Locked;
     }
 
-    public int GetLevelDeaths(int levelIndex, bool hardDifficulty)
+    public static int GetLevelDeaths(int levelIndex, bool hardDifficulty)
     {
         if (levelIndex >= levelStatuses.value.Length) { return 9999; }        
         return hardDifficulty ? levelStatuses.value[levelIndex].deathsHard : levelStatuses.value[levelIndex].deathsEasy;

@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class LevelPedestal : MonoBehaviour
 {
+
+    [SerializeField] string tooManyDeathsQuote;
     [SerializeField] int levelIndex = 100;
     [SerializeField] Material levelUnfinishedMaterial;
     [SerializeField] Material levelFinishedMaterial;
@@ -16,13 +18,25 @@ public class LevelPedestal : MonoBehaviour
     void Start()
     {
         LevelManager levelManager = FindObjectOfType<LevelManager>();
-        isLocked = levelManager.IsLevelLocked(levelIndex);
+        isLocked = LevelManager.IsLevelLocked(levelIndex);
         if (!isLocked)
         {
             gameObject.GetComponent<Renderer>().material = levelFinishedMaterial;
-            int hardDeaths = levelManager.GetLevelDeaths(levelIndex, true);
-            int easyDeaths = levelManager.GetLevelDeaths(levelIndex, false);
-            deathsDescription.text = "Easy Ds: " + (easyDeaths == int.MaxValue ? "X" : easyDeaths.ToString())  + "\nHard Ds: " + (hardDeaths == int.MaxValue ? "X" : hardDeaths.ToString());
+            int hardDeaths = LevelManager.GetLevelDeaths(levelIndex, true);
+            int easyDeaths = LevelManager.GetLevelDeaths(levelIndex, false);
+            int actualEasyDeaths = easyDeaths == int.MaxValue ? -1 : easyDeaths;
+            int actualHardDeaths = hardDeaths == int.MaxValue ? -1 : hardDeaths;
+            if (actualEasyDeaths >= 5 || actualHardDeaths >= 5)
+            {
+                deathsDescription.text = tooManyDeathsQuote;
+            }
+            else
+            {
+                string displayEasyDeaths = (easyDeaths == int.MaxValue) ? "X" : easyDeaths.ToString();
+                string displayHardDeaths = (hardDeaths == int.MaxValue) ? "X" : hardDeaths.ToString();
+                deathsDescription.text = "Easy Deaths: " + displayEasyDeaths + "\nHardDeaths: " + displayHardDeaths;
+
+            }
         }
         else
         {

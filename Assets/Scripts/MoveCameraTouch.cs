@@ -12,6 +12,20 @@ public class MoveCameraTouch : MonoBehaviour
     [SerializeField] GameObject mainMenu;
     public bool blockingRaycast = false;
 
+
+    private const int defVal = 1000000;
+    public static float xPosition = defVal;
+    public static float zPosition = defVal;
+
+    private void Awake()
+    {
+        float currentY = transform.position.y;  
+        if (xPosition != defVal)
+        {
+            transform.position = new Vector3(xPosition, currentY, zPosition);
+        }               
+    }
+
     void Update()
     {        
         if (Input.GetMouseButtonDown(0))
@@ -21,15 +35,26 @@ public class MoveCameraTouch : MonoBehaviour
             RaycastHit hit;
             bool hasHit = Physics.Raycast(mouseRay, out hit);
             LevelPedestal hitPedestal = hit.transform.GetComponent<LevelPedestal>();
+            GreatRunTrigger greatRunTrigger = hit.transform.GetComponent<GreatRunTrigger>();
             if (hitPedestal != null && !blockingRaycast)
             {
                 blockingRaycast = true;
                 hitPedestal.LoadSelectedLevel();
+                xPosition = transform.position.x;
+                zPosition = transform.position.z;
             }
             if (hit.transform.tag == "MenuStarter" && !blockingRaycast)
             {
                 blockingRaycast = true;
+                mainMenu.GetComponent<CanvasGroup>().interactable = true;
                 mainMenu.SetActive(true);                
+            }
+            if (greatRunTrigger != null && !blockingRaycast)
+            {
+                GreatRunManager.isGreatRunOn = true;
+                greatRunTrigger.StartGreatRun();
+                xPosition = transform.position.x;
+                zPosition = transform.position.z;
             }
         }
         if (Input.GetMouseButton(0))

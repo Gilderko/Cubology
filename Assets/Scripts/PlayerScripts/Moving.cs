@@ -17,7 +17,7 @@ public class Moving : MonoBehaviour {
 
     void FixedUpdate () {
         rb.AddForce(0, 0, forwardspeed * Time.deltaTime, ForceMode.Force);
-        int i = 0;
+        int i = 0;/*
         while (i < Input.touchCount)
         {
             if (Input.GetTouch(i).position.x > (ScreenWidth / 2))
@@ -30,8 +30,8 @@ public class Moving : MonoBehaviour {
             }
             i++;
         }
+        */
         
-        /*
         if (Input.GetKey(KeyCode.D))
         {
             RunCharacter(sidewaysSpeed);
@@ -40,7 +40,9 @@ public class Moving : MonoBehaviour {
         {
             RunCharacter(-sidewaysSpeed);
         }
-        */
+        
+
+
     }
 
     private void RunCharacter(float horizontalInput)

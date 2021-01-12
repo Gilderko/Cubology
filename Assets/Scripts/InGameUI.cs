@@ -5,7 +5,21 @@ using UnityEngine.SceneManagement;
 
 public class InGameUI : MonoBehaviour {
 
-	public void Restart()
+    [SerializeField] GameObject mainMenuIcon;
+    [SerializeField] GameObject restartIcon;
+    [SerializeField] GameObject giveUpIcon;
+
+    private void Start()
+    {
+        if (GreatRunManager.isGreatRunOn)
+        {
+            mainMenuIcon.SetActive(false);
+            restartIcon.SetActive(false);
+            giveUpIcon.SetActive(true);
+        }
+    }
+
+    public void Restart()
     {
         StartCoroutine(FindObjectOfType<GameManager>().RestartLevel());
     }

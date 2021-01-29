@@ -22,6 +22,11 @@ public class MainMenu : MonoBehaviour
     {
         Application.Quit();
     }
+    
+    public void DeleteSaveFile()
+    {
+        FindObjectOfType<SavingWrapper>().DeleteLevelInfo();
+    }
 
     public void BacktoLevelSelection()
     {        
@@ -33,6 +38,7 @@ public class MainMenu : MonoBehaviour
     private IEnumerator ToggleOfMenu()
     {
         yield return new WaitForSeconds(0.5f);
+        print("seting false");
         FindObjectOfType<MoveCameraTouch>().blockingRaycast = false;
         menu.SetActive(false);
     }

@@ -270,7 +270,7 @@ Camera:
   m_AllowMSAA: 0
   m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
-  m_OcclusionCulling: 1
+  m_OcclusionCulling: 0
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
 --- !u!81 &6505903692780362124
@@ -299,7 +299,7 @@ MonoBehaviour:
     m_Bits: 256
   stopNaNPropagation: 0
   finalBlitToCameraTarget: 1
-  antialiasingMode: 1
+  antialiasingMode: 0
   temporalAntialiasing:
     jitterSpread: 0.75
     sharpness: 0.25
@@ -665,17 +665,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 177112092285362095, guid: d929e25403c0c774db6ee7b782d2eeb9,
         type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 177112092285362095, guid: d929e25403c0c774db6ee7b782d2eeb9,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 177112092285362095, guid: d929e25403c0c774db6ee7b782d2eeb9,
-        type: 3}
       propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 177112092285362095, guid: d929e25403c0c774db6ee7b782d2eeb9,
+        type: 3}
+      propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6692599751296961269, guid: d929e25403c0c774db6ee7b782d2eeb9,

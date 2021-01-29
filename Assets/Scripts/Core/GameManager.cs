@@ -6,6 +6,7 @@ using Saving;
 
 public class GameManager : MonoBehaviour {
 
+    
     [SerializeField] GameObject completeLevelUI;
     [SerializeField] GameObject player;            
     public float delay = 1f;
@@ -14,10 +15,10 @@ public class GameManager : MonoBehaviour {
     
 
     Fader screenFader;    
-    bool gameHasEnded = false;       
+    bool gameHasEnded = false;   
 
     public IEnumerator Start()
-    {
+    {        
         screenFader = FindObjectOfType<Fader>();        
         print("GameManagerStart");
         screenFader.FadeInImmediate();

@@ -3620,6 +3620,11 @@ PrefabInstance:
       propertyPath: m_ShowCustomSorter
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 156445737217660842, guid: 3d93b3d4fee023541b69a0ca134ae7f8,
+        type: 3}
+      propertyPath: fog.excludeSkybox
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 177112090430873362, guid: 3d93b3d4fee023541b69a0ca134ae7f8,
         type: 3}
       propertyPath: m_textInfo.characterCount

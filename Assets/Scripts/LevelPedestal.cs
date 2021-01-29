@@ -53,5 +53,10 @@ public class LevelPedestal : MonoBehaviour
         {
             StartCoroutine(FindObjectOfType<GameManager>().LoadLevel(levelIndex,0.7f));
         }        
+    } 
+
+    public bool IsLocked()
+    {
+        return isLocked;
     }
 }

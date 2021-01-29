@@ -10,6 +10,8 @@ public class MoveCameraTouch : MonoBehaviour
     [SerializeField] int cameraMaxZ = -7;
     [SerializeField] int cameraMinZ = -80;
     [SerializeField] GameObject mainMenu;
+    [SerializeField] int multipleX;
+    [SerializeField] int multipleY;
     public bool blockingRaycast = false;
 
 
@@ -27,7 +29,8 @@ public class MoveCameraTouch : MonoBehaviour
     }
 
     void Update()
-    {        
+    { 
+        if (blockingRaycast) { return; }
         if (Input.GetMouseButtonDown(0))
         {
             touchStart = Camera.main.ScreenToViewportPoint(Input.mousePosition);
@@ -36,21 +39,22 @@ public class MoveCameraTouch : MonoBehaviour
             bool hasHit = Physics.Raycast(mouseRay, out hit);
             LevelPedestal hitPedestal = hit.transform.GetComponent<LevelPedestal>();
             GreatRunTrigger greatRunTrigger = hit.transform.GetComponent<GreatRunTrigger>();
-            if (hitPedestal != null && !blockingRaycast)
-            {
+            if (hitPedestal != null && !hitPedestal.IsLocked())
+            {                
                 blockingRaycast = true;
                 hitPedestal.LoadSelectedLevel();
                 xPosition = transform.position.x;
                 zPosition = transform.position.z;
             }
-            if (hit.transform.tag == "MenuStarter" && !blockingRaycast)
+            if (hit.transform.tag == "MenuStarter")
             {
                 blockingRaycast = true;
                 mainMenu.GetComponent<CanvasGroup>().interactable = true;
                 mainMenu.SetActive(true);                
             }
-            if (greatRunTrigger != null && !blockingRaycast)
+            if (greatRunTrigger != null)
             {
+                blockingRaycast = true;
                 GreatRunManager.isGreatRunOn = true;
                 greatRunTrigger.StartGreatRun();
                 xPosition = transform.position.x;
@@ -62,9 +66,9 @@ public class MoveCameraTouch : MonoBehaviour
             Vector3 direction = touchStart - Camera.main.ScreenToViewportPoint(Input.mousePosition);
             Vector3 cameraPos = Camera.main.transform.position;
             Vector3 potentionCameraPosition = Camera.main.transform.position - new Vector3(direction.x, 0f, direction.y);
-            float addX = !(potentionCameraPosition.x < cameraMinX || potentionCameraPosition.x > cameraMaxX) ? direction.x : 0;
-            float addZ = !(potentionCameraPosition.z < cameraMinZ || potentionCameraPosition.z > cameraMaxZ) ? direction.y : 0;            
-            Camera.main.transform.position -= new Vector3(addX, 0f, addZ);
+            float addX = (potentionCameraPosition.x < cameraMinX || potentionCameraPosition.x > cameraMaxX) ? 0 : direction.x;
+            float addZ = (potentionCameraPosition.z < cameraMinZ || potentionCameraPosition.z > cameraMaxZ) ? 0 : direction.y;            
+            Camera.main.transform.position -= new Vector3(addX * multipleX * Time.deltaTime, 0f, addZ * multipleY * Time.deltaTime);
         }
         
     }

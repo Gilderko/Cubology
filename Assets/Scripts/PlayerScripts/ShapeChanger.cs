@@ -38,6 +38,7 @@ public class ShapeChanger : MonoBehaviour
             gameObject.GetComponent<BoxCollider>().enabled = true;
             gameObject.GetComponent<SphereCollider>().enabled = false;
             gameObject.GetComponent<Moving>().forwardspeed = 1050f;
+            gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationX;
         }
         if (playerMesh.name.Contains("Sphere"))
         {
@@ -45,6 +46,7 @@ public class ShapeChanger : MonoBehaviour
             gameObject.GetComponent<SphereCollider>().enabled = true;
             gameObject.GetComponent<BoxCollider>().enabled = false;
             gameObject.GetComponent<Moving>().forwardspeed = 900f;
+            gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
         }
     }
 }

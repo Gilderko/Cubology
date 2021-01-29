@@ -69,7 +69,7 @@ MonoBehaviour:
     defaultState: 1
   tonemapper:
     overrideState: 1
-    value: 1
+    value: 0
   toneCurveToeStrength:
     overrideState: 1
     value: 0

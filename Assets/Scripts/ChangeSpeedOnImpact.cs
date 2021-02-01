@@ -14,5 +14,4 @@ public class ChangeSpeedOnImpact : MonoBehaviour
             Debug.Log("hit");
         }
     }
-
 }

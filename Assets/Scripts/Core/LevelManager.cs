@@ -15,7 +15,7 @@ public class LevelManager : MonoBehaviour, ISaveable
     {
         public int deathsEasy { get; set; } = int.MaxValue;
         public int deathsHard { get; set; } = int.MaxValue;
-        public LevelStatus LevelStatus { get; set; } = LevelStatus.Locked;
+        public LevelStatus levelStatus { get; set; } = LevelStatus.Locked;
     }
 
     private static LazyValue<LevelData[]> levelStatuses;
@@ -33,8 +33,8 @@ public class LevelManager : MonoBehaviour, ISaveable
             LevelData newLevelData = new LevelData();
             statuses.SetValue(newLevelData, i);
         }
-        statuses[0].LevelStatus = LevelStatus.Unlocked;
-        statuses[1].LevelStatus = LevelStatus.Unlocked;
+        statuses[0].levelStatus = LevelStatus.Unlocked;
+        statuses[1].levelStatus = LevelStatus.Unlocked;
         return statuses;
     }
 
@@ -42,10 +42,10 @@ public class LevelManager : MonoBehaviour, ISaveable
     {
         if (levelIndex > levelStatuses.value.Length) { return; }
         print(levelIndex);
-        print(levelStatuses.value[levelIndex].LevelStatus);
+        print(levelStatuses.value[levelIndex].levelStatus);
         print(levelStatuses.value[levelIndex].deathsEasy);
         print(levelStatuses.value[levelIndex].deathsHard);
-        if (levelStatuses.value[levelIndex].LevelStatus != LevelStatus.Locked)
+        if (levelStatuses.value[levelIndex].levelStatus != LevelStatus.Locked)
         {
             SceneManager.LoadScene(levelIndex);            
         }
@@ -53,12 +53,12 @@ public class LevelManager : MonoBehaviour, ISaveable
 
     public static void SetLevelUnlock(int levelIndex)
     {
-        levelStatuses.value[levelIndex].LevelStatus = LevelStatus.Unlocked;
+        levelStatuses.value[levelIndex].levelStatus = LevelStatus.Unlocked;
     }
 
     public static void SetLevelCompleted(int levelIndex)
     {
-        levelStatuses.value[levelIndex].LevelStatus = LevelStatus.Completed;
+        levelStatuses.value[levelIndex].levelStatus = LevelStatus.Completed;
     }
 
     public static void SetLevelDeaths(int levelIndex,bool isHard,int levelDeaths)
@@ -77,7 +77,7 @@ public class LevelManager : MonoBehaviour, ISaveable
     public static bool IsLevelLocked(int levelIndex)
     {        
         if (levelIndex >= levelStatuses.value.Length) { return true; }        
-        return levelStatuses.value[levelIndex].LevelStatus == LevelStatus.Locked;
+        return levelStatuses.value[levelIndex].levelStatus == LevelStatus.Locked;
     }
 
     public static int GetLevelDeaths(int levelIndex, bool hardDifficulty)
@@ -93,7 +93,31 @@ public class LevelManager : MonoBehaviour, ISaveable
 
     void ISaveable.RestoreState(object state)
     {
-        print("Restoring Level Statuses");        
-        levelStatuses.value = (LevelData[]) state;
+        print("Restoring Level Statuses");
+        LevelData[] currentStates = (LevelData[])state;
+        int currentStateSceneCount = currentStates.Length;
+        LevelData[] tempState;
+        int totalSceneCount = SceneManager.sceneCountInBuildSettings;
+        if (currentStates.Length < totalSceneCount)
+        {
+            tempState = InitializeLevelStatuses();
+            for (int i = 0; i < currentStateSceneCount; i++)
+            {
+                tempState[i].levelStatus = currentStates[i].levelStatus;
+            }
+        }
+        else if (currentStates.Length > totalSceneCount)
+        {
+            tempState = InitializeLevelStatuses();
+            for (int i = 0; i < totalSceneCount; i++)
+            {
+                tempState[i].levelStatus = currentStates[i].levelStatus;
+            }
+        }
+        else
+        {
+            tempState = currentStates;
+        }
+        levelStatuses.value = tempState;
     }
 }

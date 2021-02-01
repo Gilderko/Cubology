@@ -77,4 +77,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/SpaceLvl3.unity
     guid: 55ab87d91e3a59044b1d093b06ff3637
+  - enabled: 1
+    path: Assets/NatureLvl1.unity
+    guid: 24a12415be65a814d813b25d1fb4a772
   m_configObjects: {}

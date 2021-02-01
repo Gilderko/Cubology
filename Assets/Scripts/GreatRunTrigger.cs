@@ -13,7 +13,6 @@ public class GreatRunTrigger : MonoBehaviour
         int highestEasy = GreatRunManager.GetHighestLevel(false);
 
         deathsDescription.text = "Top easy: " + highestEasy + "\nTop Hard: " + highestHard;
-
     }
 
     public void StartGreatRun()

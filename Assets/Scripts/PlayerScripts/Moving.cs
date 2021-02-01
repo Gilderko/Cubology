@@ -5,9 +5,11 @@ using UnityEngine;
 public class Moving : MonoBehaviour {
 
     private Rigidbody rb;
+    private float originalFwSpeed = 900;
+    private float originalSwSpeed = 1000;
     public float forwardspeed = 1200;
     private float ScreenWidth;
-    public float sidewaysSpeed;
+    public float sidewaysSpeed = 1000;
 
     void Start()
     {       
@@ -47,5 +49,11 @@ public class Moving : MonoBehaviour {
     {        
         Vector3 force = new Vector3(horizontalInput,0, 0);
         rb.AddForce(force * Time.deltaTime, ForceMode.Force);
+    }
+
+    public void ResetSpeed()
+    {
+        forwardspeed = originalFwSpeed;
+        sidewaysSpeed = originalSwSpeed;
     }
 }

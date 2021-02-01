@@ -27,5 +27,4 @@ public class SavingWrapper : MonoBehaviour
     {
         savingSystem.Load(levelInfoSaveFile);
     }
-
 }

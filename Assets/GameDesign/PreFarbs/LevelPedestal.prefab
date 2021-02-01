@@ -1244,6 +1244,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4859d846daee7348bfbcb6653f9dffa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tooManyDeathsQuote: 
   levelIndex: 100
   levelUnfinishedMaterial: {fileID: 2100000, guid: 9275540eb0088d343979b60b2529ddea,
     type: 2}

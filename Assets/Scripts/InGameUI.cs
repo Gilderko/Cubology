@@ -19,6 +19,17 @@ public class InGameUI : MonoBehaviour {
         }
     }
 
+    void Update()
+    {        
+        if (Application.platform == RuntimePlatform.Android)
+        {            
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                StartCoroutine(FindObjectOfType<GameManager>().LoadLevel(0, 0.5f));
+            }
+        }
+    }
+
     public void Restart()
     {
         StartCoroutine(FindObjectOfType<GameManager>().RestartLevel());
@@ -26,6 +37,6 @@ public class InGameUI : MonoBehaviour {
     public void Menu()
     {
         StartCoroutine(FindObjectOfType<GameManager>().LoadLevel(0,0.5f));
-    }    
+    }   
 }
 

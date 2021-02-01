@@ -5,15 +5,14 @@ using UnityEngine.UI;
 
 public class LevelPedestal : MonoBehaviour
 {
-
     [SerializeField] string tooManyDeathsQuote;
     [SerializeField] int levelIndex = 100;
     [SerializeField] Material levelUnfinishedMaterial;
     [SerializeField] Material levelFinishedMaterial;
     [SerializeField] Text description;
     [SerializeField] Text deathsDescription;
-    private bool isLocked = true;
 
+    private bool isLocked = true;
     
     void Start()
     {
@@ -35,7 +34,6 @@ public class LevelPedestal : MonoBehaviour
                 string displayEasyDeaths = (easyDeaths == int.MaxValue) ? "X" : easyDeaths.ToString();
                 string displayHardDeaths = (hardDeaths == int.MaxValue) ? "X" : hardDeaths.ToString();
                 deathsDescription.text = "Easy Deaths: " + displayEasyDeaths + "\nHardDeaths: " + displayHardDeaths;
-
             }
         }
         else
@@ -43,8 +41,7 @@ public class LevelPedestal : MonoBehaviour
             gameObject.GetComponent<Renderer>().material = levelUnfinishedMaterial;
             deathsDescription.text = "Easy Deaths: X\nHardDeaths: x";
         }
-        description.text = "Level " + levelIndex;
-        
+        description.text = "Level " + levelIndex;        
     }
 
     public void LoadSelectedLevel()

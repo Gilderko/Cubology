@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MoveCameraTouch : MonoBehaviour
 {
-    Vector3 touchStart;
+    Vector3 touchStart;    
     [SerializeField] int cameraMaxX = -20;
     [SerializeField] int cameraMinX = -125;
     [SerializeField] int cameraMaxZ = -7;
@@ -20,7 +20,7 @@ public class MoveCameraTouch : MonoBehaviour
     public static float zPosition = defVal;
 
     private void Awake()
-    {
+    {        
         float currentY = transform.position.y;  
         if (xPosition != defVal)
         {

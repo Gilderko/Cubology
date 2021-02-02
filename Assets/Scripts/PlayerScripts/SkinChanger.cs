@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
 
-
 public class SkinChanger : MonoBehaviour {
  
     public static Material material;

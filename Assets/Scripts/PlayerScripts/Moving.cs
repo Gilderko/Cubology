@@ -32,7 +32,6 @@ public class Moving : MonoBehaviour {
             }
             i++;
         }
-
         /*
         if (Input.GetKey(KeyCode.D))
         {

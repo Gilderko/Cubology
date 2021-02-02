@@ -29,8 +29,7 @@ public class MoveCameraTouch : MonoBehaviour
     }
 
     void Update()
-    { 
-        if (blockingRaycast) { return; }
+    {         
         if (Input.GetMouseButtonDown(0))
         {
             touchStart = Camera.main.ScreenToViewportPoint(Input.mousePosition);
@@ -39,27 +38,30 @@ public class MoveCameraTouch : MonoBehaviour
             bool hasHit = Physics.Raycast(mouseRay, out hit);
             LevelPedestal hitPedestal = hit.transform.GetComponent<LevelPedestal>();
             GreatRunTrigger greatRunTrigger = hit.transform.GetComponent<GreatRunTrigger>();
-            if (hitPedestal != null && !hitPedestal.IsLocked())
-            {                
-                blockingRaycast = true;
-                hitPedestal.LoadSelectedLevel();
-                xPosition = transform.position.x;
-                zPosition = transform.position.z;
-            }
-            if (hit.transform.tag == "MenuStarter")
+            if (!blockingRaycast)
             {
-                blockingRaycast = true;
-                mainMenu.GetComponent<CanvasGroup>().interactable = true;
-                mainMenu.SetActive(true);                
-            }
-            if (greatRunTrigger != null)
-            {
-                blockingRaycast = true;
-                GreatRunManager.isGreatRunOn = true;
-                greatRunTrigger.StartGreatRun();
-                xPosition = transform.position.x;
-                zPosition = transform.position.z;
-            }
+                if (hitPedestal != null && !hitPedestal.IsLocked()) // Loading new Level
+                {
+                    blockingRaycast = true;
+                    hitPedestal.LoadSelectedLevel();
+                    xPosition = transform.position.x;
+                    zPosition = transform.position.z;
+                }
+                if (hit.transform.tag == "MenuStarter") // Triggering Menu
+                {
+                    blockingRaycast = true;
+                    mainMenu.GetComponent<CanvasGroup>().interactable = true;
+                    mainMenu.SetActive(true);
+                }
+                if (greatRunTrigger != null) // Triggering Great Run
+                {
+                    blockingRaycast = true;
+                    GreatRunManager.isGreatRunOn = true;
+                    greatRunTrigger.StartGreatRun();
+                    xPosition = transform.position.x;
+                    zPosition = transform.position.z;
+                }
+            }            
         }
         if (Input.GetMouseButton(0))
         {

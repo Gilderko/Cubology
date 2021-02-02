@@ -38,7 +38,7 @@ public class ShapeChanger : MonoBehaviour
             gameObject.GetComponent<BoxCollider>().enabled = true;
             gameObject.GetComponent<SphereCollider>().enabled = false;
             gameObject.GetComponent<Moving>().forwardspeed = 1050f;
-            gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationX;
+            gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;            
         }
         if (playerMesh.name.Contains("Sphere"))
         {

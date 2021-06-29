@@ -8,8 +8,9 @@ OcclusionCullingSettings:
     smallestOccluder: 5
     smallestHole: 0.25
     backfaceThreshold: 100
-  m_SceneGUID: 00000000000000000000000000000000
-  m_OcclusionCullingData: {fileID: 0}
+  m_SceneGUID: 3c804711a0c596d43b2f53c4cc2412f9
+  m_OcclusionCullingData: {fileID: 36300000, guid: f37464fa3be576d448eacfe7530fe8c4,
+    type: 2}
 --- !u!104 &2
 RenderSettings:
   m_ObjectHideFlags: 0
@@ -17,7 +18,7 @@ RenderSettings:
   m_Fog: 1
   m_FogColor: {r: 0.6886792, g: 0.4467938, b: 0.2891153, a: 1}
   m_FogMode: 2
-  m_FogDensity: 0.12
+  m_FogDensity: 0.06
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}

@@ -1,6 +1,9 @@
 # Cubology 
 
-Welcome to my simple game created using Unity. Game is targeted for Android smartphones, but 
+Welcome to mySimple runner, in which you try to dodge obstacles and reach the end of the level. 
+Each level is different and has a specific theme with a unique game mechanic 
+(following the light in the darkness, dense fog, and dust storms, turrets, etc.). 
+Game is targeted for Android smartphones, but 
 it can also be built for PC with slight UI scaling issues that require attention.
 
 The goal of the game is to pass all possible levels with as little tries as possible. 

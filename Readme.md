@@ -1,6 +1,6 @@
 # Cubology 
 
-Welcome to mySimple runner, in which you try to dodge obstacles and reach the end of the level. 
+Welcome to my first ever game, in which you try to dodge obstacles and reach the end of the level. 
 Each level is different and has a specific theme with a unique game mechanic 
 (following the light in the darkness, dense fog, and dust storms, turrets, etc.). 
 Game is targeted for Android smartphones, but 
@@ -24,4 +24,5 @@ Game includes a trial with only one life so... good luck :D
 ![alt text](https://github.com/Gilderko/GameDesignProject/blob/main/LevelImages/SpaceLevel.png?raw=true)
 
 ## Info
+This is my first ever Unity game thanks to which I have learned the very basics of C# and Unity programming.
 Images, 3D, 2D objects and music found in this game were acquired through Unity Asset store for free.
